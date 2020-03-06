@@ -1,0 +1,41 @@
+{
+  "en": {
+    "Created data successful": "Created data successful",
+    "Deleted data successful": "Deleted data successful",
+    "User not found": "User not found",
+    "Invalid email address format": "Invalid email address format",
+    "Invalid parameter page: not an int": "Invalid parameter page: not an int",
+    "Invalid parameter per_page: not an int": "Invalid parameter per_page: not an int",
+    "Name can't be empty": "Name can't be empty",
+    "OK": "OK",
+    "Oops! Something went wrong with your request": "Oops! Something went wrong with your request",
+    "Oops! Something went wrong. Please try again later": "Oops! Something went wrong. Please try again later",
+    "Updated data successful": "Updated data successful"
+  },
+  "id": {
+    "Created data successful": "Berhasil menambah data",
+    "Deleted data successful": "Berhasil hapus data",
+    "User not found": "Pengguna tidak ditemukan",
+    "Invalid email address format": "Format alamat email salah",
+    "Invalid parameter page: not an int": "Kesalahan parameter page: bukan angka",
+    "Invalid parameter per_page: not an int": "Kesalahan parameter per_page: bukan angka",
+    "Name can't be empty": "Nama tidak boleh kosong",
+    "OK": "OK",
+    "Oops! Something went wrong with your request": "Ups! Terjadi kesalahan pada permintaan anda",
+    "Oops! Something went wrong. Please try again later": "Ups! Terjadi kesalahan. Silakan coba kembali nanti",
+    "Updated data successful": "Berhasil mengubah data"
+  },
+  "jp": {
+    "Created data successful": "作成されたデータが成功しました",
+    "Deleted data successful": "削除されたデータが成功しました",
+    "User not found": "ユーザーが見つかりません",
+    "Invalid email address format": "メールアドレスの形式が無効です",
+    "Invalid parameter page: not an int": "無効なパラメーターpage：intではありません",
+    "Invalid parameter per_page: not an int": "無効なパラメーターper_page：intではありません",
+    "Name can't be empty": "名前は空にできません",
+    "OK": "オーケー",
+    "Oops! Something went wrong with your request": "おっと！ リクエストに問題が発生しました",
+    "Oops! Something went wrong. Please try again later": "おっと！ 何かがおかしかった。 後でもう一度やり直してください",
+    "Updated data successful": "更新されたデータが成功しました"
+  }
+}

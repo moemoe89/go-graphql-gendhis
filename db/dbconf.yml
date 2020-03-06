@@ -1,0 +1,7 @@
+development:
+  driver: postgres
+  open: postgres://postgres@127.0.0.1:5432/simple_api?sslmode=disable
+
+docker:
+  driver: postgres
+  open: postgres://docker:docker@postgres:5432/simple_api?sslmode=disable

@@ -1,0 +1,260 @@
+basePath: /api/v1
+definitions:
+  form.UserForm:
+    properties:
+      address:
+        type: string
+      email:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+    type: object
+  model.GenericResponse:
+    properties:
+      messages:
+        items:
+          type: string
+        type: array
+      status:
+        type: integer
+      success:
+        type: boolean
+    type: object
+  model.UserModel:
+    properties:
+      address:
+        type: string
+      created_at:
+        type: string
+      email:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  model.UserPaginationResponse:
+    properties:
+      list:
+        items:
+          $ref: '#/definitions/model.UserModel'
+        type: array
+      page:
+        type: integer
+      per_page:
+        type: integer
+      total_data:
+        type: integer
+      total_page:
+        type: integer
+    type: object
+  model.UserResponse:
+    properties:
+      data:
+        $ref: '#/definitions/model.UserModel'
+        type: object
+      messages:
+        items:
+          type: string
+        type: array
+      status:
+        type: integer
+      success:
+        type: boolean
+    type: object
+  model.UsersResponse:
+    properties:
+      data:
+        $ref: '#/definitions/model.UserPaginationResponse'
+        type: object
+      messages:
+        items:
+          type: string
+        type: array
+      status:
+        type: integer
+      success:
+        type: boolean
+    type: object
+info:
+  contact:
+    email: bismobaruno@gmail.com
+    name: API Support
+    url: '-'
+  description: This is a documentation of Simple REST API.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Simple REST API
+  version: 1.0.0
+paths:
+  /user:
+    get:
+      description: get list of user data
+      parameters:
+      - description: Language message response
+        in: header
+        name: Accept-Language
+        type: string
+      - description: Limit per page
+        in: query
+        name: per_page
+        type: integer
+      - description: Page number
+        in: query
+        name: page
+        type: integer
+      - description: Select field
+        in: query
+        name: select_field
+        type: string
+      - description: Sort by
+        in: query
+        name: order_by
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.UsersResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/model.GenericResponse'
+      summary: User List
+    post:
+      consumes:
+      - application/json
+      description: create user data
+      parameters:
+      - description: language message response
+        in: header
+        name: Accept-Language
+        type: string
+      - description: Request Payload
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/form.UserForm'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/model.UserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/model.GenericResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/model.GenericResponse'
+      summary: User Create
+  /user/{id}:
+    delete:
+      description: delete user data by ID
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: language message response
+        in: header
+        name: Accept-Language
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.GenericResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.GenericResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/model.GenericResponse'
+      summary: User Delete
+    get:
+      description: get user data by ID
+      parameters:
+      - description: language message response
+        in: header
+        name: Accept-Language
+        type: string
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.UserResponse'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/model.GenericResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/model.GenericResponse'
+      summary: User Detail
+    put:
+      consumes:
+      - application/json
+      description: update user data
+      parameters:
+      - description: language message response
+        in: header
+        name: Accept-Language
+        type: string
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Request Payload
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/form.UserForm'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/model.UserResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/model.GenericResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/model.GenericResponse'
+      summary: User Update
+swagger: "2.0"

@@ -1,0 +1,12 @@
+{
+  "run_mode": "development",
+  "port": "8791",
+  "dialect_master": "postgres",
+  "dsn_master": "postgres://postgres@127.0.0.1:5432/simple_api?sslmode=disable",
+  "idle_conn_master": 0,
+  "max_conn_master": 500,
+  "dialect_slave": "postgres",
+  "dsn_slave": "postgres://postgres@127.0.0.1:5432/simple_api?sslmode=disable",
+  "idle_conn_slave": 0,
+  "max_conn_slave": 500
+}
