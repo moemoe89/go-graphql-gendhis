@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/moemoe89/practicing-graphql-golang.svg?branch=master)](https://travis-ci.org/moemoe89/practicing-graphql-golang)
+[![CircleCI](https://circleci.com/gh/moemoe89/practicing-graphql-golang.svg?style=svg)](https://circleci.com/gh/moemoe89/practicing-graphql-golang)
 [![codecov](https://codecov.io/gh/moemoe89/practicing-graphql-golang/branch/master/graph/badge.svg)](https://codecov.io/gh/moemoe89/practicing-graphql-golang)
 [![Go Report Card](https://goreportcard.com/badge/github.com/moemoe89/practicing-graphql-golang)](https://goreportcard.com/report/github.com/moemoe89/practicing-graphql-golang)
 
