@@ -1,0 +1,38 @@
+scalar Time
+
+type User {
+    ID: String
+    Name: String
+    Email: String
+    Phone: String
+    Address: String
+    CreatedAt: Time
+    UpdatedAt: Time
+}
+
+type Edge {
+    cursor: String
+    node: User
+}
+
+type PageInfo {
+    endCursor: String
+    hasNextPage: Boolean
+}
+
+type Users {
+    edges: [Edge]
+    pageInfo: PageInfo
+    totalCount: Int
+}
+
+type Query {
+    List(after: String, first: Int): Users
+    Detail(id: String): User
+}
+
+type Mutation {
+    Update(id: String, name: String, phone: String, email: String, address: String): User
+    Create(name: String, phone: String, email: String, address: String): User
+    Delete(id: String): Int
+}

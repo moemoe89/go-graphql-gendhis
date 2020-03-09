@@ -4,7 +4,7 @@
 
 # practicing-graphql-golang #
 
-Simple Go Clean Arch Using Golang (Gin Gonic Framework) as Programming Language, MariaDB as Database
+Simple Go Clean Arch Using Golang (Gin Gonic Framework) as Programming Language, PostgreSQL as Database
 
 ## Directory structure
 Your project directory structure should look like this
@@ -33,7 +33,7 @@ Your project directory structure should look like this
 ## Setup and Build
 
 * Setup Golang <https://golang.org/>
-* Setup MariaDB <https://www.mariadb.org/>
+* Setup PostgreSQL <https://www.postgresql.org/>
 * Under `$GOPATH`, do the following command :
 ```
 $ mkdir -p src/github.com/moemoe89
@@ -44,7 +44,7 @@ $ mv <cloned directory> practicing-graphql-golang
 
 ## Running Migration
 * Copy `config-sample.json` to `config.json` and changes the value based on your configurations.
-* Create MySQL database for example named `simple_api` and do migration with `Goose` <https://bitbucket.org/liamstask/goose/>
+* Create PostgreSQL database for example named `simple_api` and do migration with `Goose` <https://bitbucket.org/liamstask/goose/>
 * Change database configuration on dbconf.yml like `dialect` and `dsn` for each environtment
 * Do the following command
 ```
@@ -133,3 +133,57 @@ Run with HTML output
 ```
 $ go test ./... -coverprofile=c.out && go tool cover -html=c.out
 ```
+
+## Example Request
+Navigate your browser to this url for running the GraphQL console
+```
+/api/v1/graphql/user
+```
+### Create
+```
+POST /api/v1/graphql/user
+Content-Type: application/json
+{
+	"query": "mutation{Create(name:\"momo\",phone:\"0856\",email:\"m@m.com\",address:\"Indonesia\"){id,name,phone,email,address}}"
+}
+```
+### List
+```
+POST /api/v1/graphql/user
+Content-Type: application/json
+{
+	"query": "{List(per_page:\"10\",page:\"1\",order_by:\"\",name:\"\",phone:\"\",email:\"\",created_at_start:\"\",created_at_end:\"\",select_field:\"\"){list{id,name,phone,email,address}}}"
+}
+```
+### Detail
+```
+POST /api/v1/graphql/user
+Content-Type: application/json
+{
+	"query": "{Detail(id:\"bph2mlript32plmed820\"){id,name,phone,email,address}}"
+}
+```
+### Update
+```
+POST /api/v1/graphql/user
+Content-Type: application/json
+{
+	"query": "mutation{Update(id:\"bpielbbipt341rif5i20\",name:\"momo update\",phone:\"0856\",email:\"m@m.com\",address:\"Indonesia\"){id,name,phone,email,address}}"
+}
+```
+### Delete
+```
+POST /api/v1/graphql/user
+Content-Type: application/json
+{
+	"query": "mutation{Delete(id:\"bpielbbipt341rif5i20\")}"
+}
+```
+
+## Reference
+
+Thanks to this medium [link](https://medium.com/easyread/graphql-delivery-on-golangs-clean-architecture-5c995a17b3a8) for sharing the great article
+
+## License
+
+MIT

@@ -33,7 +33,7 @@ func TestGet(t *testing.T) {
 	query := "SELECT " + model.UserSelectField + " FROM users WHERE deleted_at IS NULL ORDER BY id ASC LIMIT \\? OFFSET \\?"
 
 	mock.ExpectQuery(query).WillReturnRows(rows)
-	u := user.NewMysqlRepository(sqlxDB, sqlxDB)
+	u := user.NewPostgresRepository(sqlxDB, sqlxDB)
 
 	orderBy := "id ASC"
 	where := "WHERE deleted_at IS NULL"
@@ -61,7 +61,7 @@ func TestCount(t *testing.T) {
 	query := "SELECT COUNT\\(id\\) FROM users WHERE deleted_at IS NULL"
 
 	mock.ExpectQuery(query).WillReturnRows(rows)
-	u := user.NewMysqlRepository(sqlxDB, sqlxDB)
+	u := user.NewPostgresRepository(sqlxDB, sqlxDB)
 
 	where := "WHERE deleted_at IS NULL"
 	filter := map[string]interface{}{}
@@ -92,7 +92,7 @@ func TestCreate(t *testing.T) {
 
 	mock.ExpectExec(query).WithArgs(req.ID, req.Name, req.Email, req.Phone, req.Address).WillReturnResult(sqlmock.NewResult(0, 1))
 
-	u := user.NewMysqlRepository(sqlxDB, sqlxDB)
+	u := user.NewPostgresRepository(sqlxDB, sqlxDB)
 	userRow, err := u.Create(req)
 
 	assert.NoError(t, err)
@@ -123,7 +123,7 @@ func TestGetByID(t *testing.T) {
 	query := "SELECT " + model.UserSelectField + " FROM users WHERE deleted_at IS NULL AND id = \\?"
 
 	mock.ExpectQuery(query).WithArgs(req.ID).WillReturnRows(rows)
-	u := user.NewMysqlRepository(sqlxDB, sqlxDB)
+	u := user.NewPostgresRepository(sqlxDB, sqlxDB)
 
 	userRow, err := u.GetByID(req.ID, "")
 
@@ -150,7 +150,7 @@ func TestUpdate(t *testing.T) {
 	query := "UPDATE users SET name = \\?, email = \\?, phone = \\?, address = \\?, updated_at = CURRENT_TIMESTAMP WHERE id = \\?"
 
 	mock.ExpectExec(query).WithArgs(req.Name, req.Email, req.Phone, req.Address, req.ID).WillReturnResult(sqlmock.NewResult(0, 1))
-	u := user.NewMysqlRepository(sqlxDB, sqlxDB)
+	u := user.NewPostgresRepository(sqlxDB, sqlxDB)
 
 	userRow, err := u.Update(req)
 
@@ -171,7 +171,7 @@ func TestDelete(t *testing.T) {
 	query := "UPDATE users SET deleted_at = CURRENT_TIMESTAMP WHERE id = \\?"
 
 	mock.ExpectExec(query).WithArgs(id).WillReturnResult(sqlmock.NewResult(0, 1))
-	u := user.NewMysqlRepository(sqlxDB, sqlxDB)
+	u := user.NewPostgresRepository(sqlxDB, sqlxDB)
 
 	err = u.Delete(id)
 

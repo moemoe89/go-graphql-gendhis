@@ -7,7 +7,7 @@ services:
     container_name: golang_api
     restart: always
     ports:
-      - "8787:8787"
+      - "8791:8791"
     tty: true
     depends_on:
       - postgres

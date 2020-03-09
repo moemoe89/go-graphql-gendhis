@@ -24,41 +24,41 @@ type Repository interface {
 	Delete(id string) error
 }
 
-type mysqlRepository struct {
+type postgresRepository struct {
 	DBRead  *sqlx.DB
 	DBWrite *sqlx.DB
 }
 
-// NewMysqlRepository will create an object that represent the Repository interface
-func NewMysqlRepository(DBRead *sqlx.DB, DBWrite *sqlx.DB) Repository {
-	return &mysqlRepository{DBRead, DBWrite}
+// NewPostgresRepository will create an object that represent the Repository interface
+func NewPostgresRepository(DBRead *sqlx.DB, DBWrite *sqlx.DB) Repository {
+	return &postgresRepository{DBRead, DBWrite}
 }
 
-func (m *mysqlRepository) Get(filter map[string]interface{}, where, orderBy, selectField string) ([]*model.UserModel, error) {
+func (p *postgresRepository) Get(filter map[string]interface{}, where, orderBy, selectField string) ([]*model.UserModel, error) {
 	users := []*model.UserModel{}
 	if len(selectField) == 0 {
 		selectField = model.UserSelectField
 	}
 	query := fmt.Sprintf("SELECT %s FROM users %s ORDER BY %s LIMIT :limit OFFSET :offset", selectField, where, orderBy)
-	namedQuery, args, _ := m.DBRead.BindNamed(query, filter)
-	err := m.DBRead.Select(&users, namedQuery, args...)
+	namedQuery, args, _ := p.DBRead.BindNamed(query, filter)
+	err := p.DBRead.Select(&users, namedQuery, args...)
 	return users, err
 }
 
-func (m *mysqlRepository) Count(filter map[string]interface{}, where string) (int, error) {
+func (p *postgresRepository) Count(filter map[string]interface{}, where string) (int, error) {
 	var count int
 	query := fmt.Sprintf("SELECT COUNT(id) FROM users %s", where)
-	namedQuery, args, _ := m.DBRead.BindNamed(query, filter)
-	err := m.DBRead.Get(&count, namedQuery, args...)
+	namedQuery, args, _ := p.DBRead.BindNamed(query, filter)
+	err := p.DBRead.Get(&count, namedQuery, args...)
 	return count, err
 }
 
-func (m *mysqlRepository) Create(user *model.UserModel) (*model.UserModel, error) {
-	_, err := m.DBWrite.NamedExec(`INSERT INTO users (id, name, email, phone, address, created_at, updated_at) VALUES (:id, :name, :email, :phone, :address, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)`, user)
+func (p *postgresRepository) Create(user *model.UserModel) (*model.UserModel, error) {
+	_, err := p.DBWrite.NamedExec(`INSERT INTO users (id, name, email, phone, address, created_at, updated_at) VALUES (:id, :name, :email, :phone, :address, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)`, user)
 	return user, err
 }
 
-func (m *mysqlRepository) GetByID(id, selectField string) (*model.UserModel, error) {
+func (p *postgresRepository) GetByID(id, selectField string) (*model.UserModel, error) {
 	where := "WHERE deleted_at IS NULL"
 	filter := map[string]interface{}{}
 
@@ -70,20 +70,20 @@ func (m *mysqlRepository) GetByID(id, selectField string) (*model.UserModel, err
 		selectField = model.UserSelectField
 	}
 	query := fmt.Sprintf("SELECT %s FROM users %s", selectField, where)
-	namedQuery, args, _ := m.DBRead.BindNamed(query, filter)
-	err := m.DBRead.Get(user, namedQuery, args...)
+	namedQuery, args, _ := p.DBRead.BindNamed(query, filter)
+	err := p.DBRead.Get(user, namedQuery, args...)
 	return user, err
 }
 
-func (m *mysqlRepository) Update(user *model.UserModel) (*model.UserModel, error) {
-	_, err := m.DBWrite.NamedExec(`UPDATE users SET name = :name, email = :email, phone = :phone, address = :address, updated_at = CURRENT_TIMESTAMP WHERE id = :id`, user)
+func (p *postgresRepository) Update(user *model.UserModel) (*model.UserModel, error) {
+	_, err := p.DBWrite.NamedExec(`UPDATE users SET name = :name, email = :email, phone = :phone, address = :address, updated_at = CURRENT_TIMESTAMP WHERE id = :id`, user)
 	return user, err
 }
 
-func (m *mysqlRepository) Delete(id string) error {
+func (p *postgresRepository) Delete(id string) error {
 	user := &model.UserModel{
 		ID: id,
 	}
-	_, err := m.DBWrite.NamedExec(`UPDATE users SET deleted_at = CURRENT_TIMESTAMP WHERE id = :id`, user)
+	_, err := p.DBWrite.NamedExec(`UPDATE users SET deleted_at = CURRENT_TIMESTAMP WHERE id = :id`, user)
 	return err
 }

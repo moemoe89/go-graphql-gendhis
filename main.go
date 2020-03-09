@@ -7,6 +7,7 @@
 package main
 
 import (
+	"github.com/moemoe89/practicing-graphql-golang/api/v1/user"
 	conf "github.com/moemoe89/practicing-graphql-golang/config"
 	_ "github.com/moemoe89/practicing-graphql-golang/docs"
 	"github.com/moemoe89/practicing-graphql-golang/routers"
@@ -14,7 +15,6 @@ import (
 	"fmt"
 
 	"github.com/DeanThompson/ginpprof"
-	"github.com/moemoe89/practicing-graphql-golang/api/v1/user"
 )
 
 // @title Simple REST API
@@ -58,7 +58,7 @@ func main() {
 
 	log := conf.InitLog()
 
-	userRepo := user.NewMysqlRepository(dbR, dbW)
+	userRepo := user.NewPostgresRepository(dbR, dbW)
 	userSvc := user.NewService(log, userRepo)
 
 	app := routers.GetRouter(lang, log, userSvc)

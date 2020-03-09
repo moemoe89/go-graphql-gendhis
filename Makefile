@@ -14,7 +14,7 @@ run:
 	@nohup ./app &
 
 stop:
-	@kill -9 `lsof -t -i:8787`
+	@kill -9 `lsof -t -i:8791`
 
 docker-build:
 	@cp -rf config-docker.json config.json

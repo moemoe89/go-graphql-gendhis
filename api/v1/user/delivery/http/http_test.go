@@ -4,7 +4,7 @@
 //  Copyright © 2020. All rights reserved.
 //
 
-package user_test
+package http_test
 
 import (
 	"github.com/moemoe89/practicing-graphql-golang/api/v1/api_struct/form"

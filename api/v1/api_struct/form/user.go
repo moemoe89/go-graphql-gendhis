@@ -32,3 +32,18 @@ func (v *UserForm) Validate() []string {
 
 	return errs
 }
+
+// UserQueryForm represent the user request model
+type UserQueryForm struct {
+	Query string `json:"query"`
+}
+
+// Validate represent the validation method from UserQueryForm
+func (v *UserQueryForm) Validate() []string {
+	errs := []string{}
+	if len(v.Query) < 1 {
+		errs = append(errs, "Query can't be empty")
+	}
+
+	return errs
+}

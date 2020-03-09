@@ -4,12 +4,13 @@
 //  Copyright © 2020. All rights reserved.
 //
 
-package user
+package http
 
 import (
 	"github.com/moemoe89/go-helpers"
 	"github.com/moemoe89/practicing-graphql-golang/api/v1/api_struct/form"
 	"github.com/moemoe89/practicing-graphql-golang/api/v1/api_struct/model"
+	usr "github.com/moemoe89/practicing-graphql-golang/api/v1/user"
 	cons "github.com/moemoe89/practicing-graphql-golang/constant"
 
 	"math"
@@ -25,11 +26,11 @@ import (
 type userCtrl struct {
 	lang *language.Config
 	log  *logrus.Entry
-	svc  Service
+	svc  usr.Service
 }
 
 // NewUserCtrl will create an object that represent the userCtrl struct
-func NewUserCtrl(lang *language.Config, log *logrus.Entry, svc Service) *userCtrl {
+func NewUserCtrl(lang *language.Config, log *logrus.Entry, svc usr.Service) *userCtrl {
 	return &userCtrl{lang, log, svc}
 }
 
