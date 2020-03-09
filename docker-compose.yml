@@ -4,7 +4,7 @@ services:
     build: .
     volumes:
       - .:/go/src/github.com/moemoe89/practicing-graphql-golang
-    container_name: golang_api
+    container_name: golang_graphql_api
     restart: always
     ports:
       - "8791:8791"
