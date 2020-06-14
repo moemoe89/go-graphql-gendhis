@@ -7,8 +7,8 @@
 package api
 
 import (
-	conf "github.com/moemoe89/practicing-graphql-golang/config"
-	cons "github.com/moemoe89/practicing-graphql-golang/constant"
+	conf "github.com/moemoe89/go-graphql-gendhis/config"
+	cons "github.com/moemoe89/go-graphql-gendhis/constant"
 
 	"net/http"
 	"time"

@@ -1,10 +1,10 @@
-[![CircleCI](https://circleci.com/gh/moemoe89/practicing-graphql-golang.svg?style=svg)](https://circleci.com/gh/moemoe89/practicing-graphql-golang)
-[![codecov](https://codecov.io/gh/moemoe89/practicing-graphql-golang/branch/master/graph/badge.svg)](https://codecov.io/gh/moemoe89/practicing-graphql-golang)
-[![Go Report Card](https://goreportcard.com/badge/github.com/moemoe89/practicing-graphql-golang)](https://goreportcard.com/report/github.com/moemoe89/practicing-graphql-golang)
+[![CircleCI](https://circleci.com/gh/moemoe89/go-graphql-gendhis.svg?style=svg)](https://circleci.com/gh/moemoe89/go-graphql-gendhis)
+[![codecov](https://codecov.io/gh/moemoe89/go-graphql-gendhis/branch/master/graph/badge.svg)](https://codecov.io/gh/moemoe89/go-graphql-gendhis)
+[![Go Report Card](https://goreportcard.com/badge/github.com/moemoe89/go-graphql-gendhis)](https://goreportcard.com/report/github.com/moemoe89/go-graphql-gendhis)
 
-# practicing-graphql-golang #
+# GO-GRAPHQL-GENDHIS #
 
-Simple Go Clean Arch Using Golang (Gin Gonic Framework) as Programming Language, PostgreSQL as Database
+Practicing GraphQL Using Golang (Gin Gonic Framework) as Programming Language, PostgreSQL as Database
 
 ## Directory structure
 Your project directory structure should look like this
@@ -13,7 +13,7 @@ Your project directory structure should look like this
   |
   +--+ src/github.com/moemoe89
   |  |
-  |  +--+ practicing-graphql-golang/
+  |  +--+ go-graphql-gendhis/
   |     |
   |     +--+ main.go
   |        + api/
@@ -39,7 +39,7 @@ Your project directory structure should look like this
 $ mkdir -p src/github.com/moemoe89
 $ cd src/github.com/moemoe89
 $ git clone <url>
-$ mv <cloned directory> practicing-graphql-golang
+$ mv <cloned directory> go-graphql-gendhis
 ```
 
 ## Running Migration
@@ -48,7 +48,7 @@ $ mv <cloned directory> practicing-graphql-golang
 * Change database configuration on dbconf.yml like `dialect` and `dsn` for each environtment
 * Do the following command
 ```
-$ cd $GOPATH/src/github.com/moemoe89/practicing-graphql-golang
+$ cd $GOPATH/src/github.com/moemoe89/go-graphql-gendhis
 $ goose -env=development up
 ```
 
@@ -69,17 +69,17 @@ $ cp config-sample.json config-local.json
 ```
 Build
 ```
-$ cd $GOPATH/src/github.com/moemoe89/practicing-graphql-golang
+$ cd $GOPATH/src/github.com/moemoe89/go-graphql-gendhis
 $ make build
 ```
 Run
 ```
-$ cd $GOPATH/src/github.com/moemoe89/practicing-graphql-golang
+$ cd $GOPATH/src/github.com/moemoe89/go-graphql-gendhis
 $ make run
 ```
 Stop
 ```
-$ cd $GOPATH/src/github.com/moemoe89/practicing-graphql-golang
+$ cd $GOPATH/src/github.com/moemoe89/go-graphql-gendhis
 $ make stop
 ```
 Make config file for docker :
@@ -88,17 +88,17 @@ $ cp config-sample.json config-docker.json
 ```
 Docker Build
 ```
-$ cd $GOPATH/src/github.com/moemoe89/practicing-graphql-golang
+$ cd $GOPATH/src/github.com/moemoe89/go-graphql-gendhis
 $ make docker-build
 ```
 Docker Up
 ```
-$ cd $GOPATH/src/github.com/moemoe89/practicing-graphql-golang
+$ cd $GOPATH/src/github.com/moemoe89/go-graphql-gendhis
 $ make docker-up
 ```
 Docker Down
 ```
-$ cd $GOPATH/src/github.com/moemoe89/practicing-graphql-golang
+$ cd $GOPATH/src/github.com/moemoe89/go-graphql-gendhis
 $ make docker-down
 ```
 

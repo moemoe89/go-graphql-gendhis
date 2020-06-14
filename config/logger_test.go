@@ -7,7 +7,7 @@
 package config_test
 
 import (
-	"github.com/moemoe89/practicing-graphql-golang/config"
+	"github.com/moemoe89/go-graphql-gendhis/config"
 
 	"testing"
 

@@ -7,8 +7,8 @@
 package api_test
 
 import (
-	"github.com/moemoe89/practicing-graphql-golang/config"
-	"github.com/moemoe89/practicing-graphql-golang/routers"
+	"github.com/moemoe89/go-graphql-gendhis/config"
+	"github.com/moemoe89/go-graphql-gendhis/routers"
 
 	"net/http"
 	"net/http/httptest"

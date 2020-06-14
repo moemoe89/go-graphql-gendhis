@@ -7,11 +7,11 @@
 package routers
 
 import (
-	ap "github.com/moemoe89/practicing-graphql-golang/api"
-	mw "github.com/moemoe89/practicing-graphql-golang/api/middleware"
-	"github.com/moemoe89/practicing-graphql-golang/api/v1/user"
-	usrGraphQL "github.com/moemoe89/practicing-graphql-golang/api/v1/user/delivery/graphql"
-	usrHttp "github.com/moemoe89/practicing-graphql-golang/api/v1/user/delivery/http"
+	ap "github.com/moemoe89/go-graphql-gendhis/api"
+	mw "github.com/moemoe89/go-graphql-gendhis/api/middleware"
+	"github.com/moemoe89/go-graphql-gendhis/api/v1/user"
+	usrGraphQL "github.com/moemoe89/go-graphql-gendhis/api/v1/user/delivery/graphql"
+	usrHttp "github.com/moemoe89/go-graphql-gendhis/api/v1/user/delivery/http"
 
 	"github.com/gin-gonic/gin"
 	"github.com/moemoe89/go-localization"

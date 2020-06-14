@@ -1,7 +1,7 @@
 version: 2
 jobs:
   test:
-    working_directory: /go/src/github.com/moemoe89/practicing-graphql-golang
+    working_directory: /go/src/github.com/moemoe89/go-graphql-gendhis
     docker:
     - image: golang:1.13
     steps:

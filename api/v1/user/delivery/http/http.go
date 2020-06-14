@@ -8,10 +8,10 @@ package http
 
 import (
 	"github.com/moemoe89/go-helpers"
-	"github.com/moemoe89/practicing-graphql-golang/api/v1/api_struct/form"
-	"github.com/moemoe89/practicing-graphql-golang/api/v1/api_struct/model"
-	usr "github.com/moemoe89/practicing-graphql-golang/api/v1/user"
-	cons "github.com/moemoe89/practicing-graphql-golang/constant"
+	"github.com/moemoe89/go-graphql-gendhis/api/v1/api_struct/form"
+	"github.com/moemoe89/go-graphql-gendhis/api/v1/api_struct/model"
+	usr "github.com/moemoe89/go-graphql-gendhis/api/v1/user"
+	cons "github.com/moemoe89/go-graphql-gendhis/constant"
 
 	"math"
 	"net/http"

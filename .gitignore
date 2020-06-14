@@ -50,7 +50,7 @@ inuit_rsa.pub
 *.iml
 
 # binary
-practicing-graphql-golang
+go-graphql-gendhis
 app
 
 # out

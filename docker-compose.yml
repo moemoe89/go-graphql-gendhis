@@ -3,8 +3,8 @@ services:
   app:
     build: .
     volumes:
-      - .:/go/src/github.com/moemoe89/practicing-graphql-golang
-    container_name: golang_graphql_api
+      - .:/go/src/github.com/moemoe89/go-graphql-gendhis
+    container_name: go_graphql_gendhis
     restart: always
     ports:
       - "8791:8791"

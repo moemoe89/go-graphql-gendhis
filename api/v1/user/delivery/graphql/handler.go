@@ -7,7 +7,7 @@
 package graphql
 
 import (
-	"github.com/moemoe89/practicing-graphql-golang/api/v1/user"
+	"github.com/moemoe89/go-graphql-gendhis/api/v1/user"
 
 	"github.com/gin-gonic/gin"
 	"github.com/graphql-go/graphql"

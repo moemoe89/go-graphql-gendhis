@@ -7,7 +7,7 @@
 package form_test
 
 import (
-	"github.com/moemoe89/practicing-graphql-golang/api/v1/api_struct/form"
+	"github.com/moemoe89/go-graphql-gendhis/api/v1/api_struct/form"
 
 	"testing"
 

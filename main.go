@@ -7,10 +7,10 @@
 package main
 
 import (
-	"github.com/moemoe89/practicing-graphql-golang/api/v1/user"
-	conf "github.com/moemoe89/practicing-graphql-golang/config"
-	_ "github.com/moemoe89/practicing-graphql-golang/docs"
-	"github.com/moemoe89/practicing-graphql-golang/routers"
+	"github.com/moemoe89/go-graphql-gendhis/api/v1/user"
+	conf "github.com/moemoe89/go-graphql-gendhis/config"
+	_ "github.com/moemoe89/go-graphql-gendhis/docs"
+	"github.com/moemoe89/go-graphql-gendhis/routers"
 
 	"fmt"
 

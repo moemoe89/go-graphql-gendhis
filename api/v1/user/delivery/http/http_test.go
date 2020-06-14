@@ -7,11 +7,11 @@
 package http_test
 
 import (
-	"github.com/moemoe89/practicing-graphql-golang/api/v1/api_struct/form"
-	"github.com/moemoe89/practicing-graphql-golang/api/v1/api_struct/model"
-	"github.com/moemoe89/practicing-graphql-golang/api/v1/user/mocks"
-	"github.com/moemoe89/practicing-graphql-golang/config"
-	"github.com/moemoe89/practicing-graphql-golang/routers"
+	"github.com/moemoe89/go-graphql-gendhis/api/v1/api_struct/form"
+	"github.com/moemoe89/go-graphql-gendhis/api/v1/api_struct/model"
+	"github.com/moemoe89/go-graphql-gendhis/api/v1/user/mocks"
+	"github.com/moemoe89/go-graphql-gendhis/config"
+	"github.com/moemoe89/go-graphql-gendhis/routers"
 
 	"encoding/json"
 	"errors"

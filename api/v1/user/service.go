@@ -7,8 +7,8 @@
 package user
 
 import (
-	"github.com/moemoe89/practicing-graphql-golang/api/v1/api_struct/form"
-	"github.com/moemoe89/practicing-graphql-golang/api/v1/api_struct/model"
+	"github.com/moemoe89/go-graphql-gendhis/api/v1/api_struct/form"
+	"github.com/moemoe89/go-graphql-gendhis/api/v1/api_struct/model"
 
 	"database/sql"
 	"errors"

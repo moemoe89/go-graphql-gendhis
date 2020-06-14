@@ -1,4 +1,4 @@
-module github.com/moemoe89/practicing-graphql-golang
+module github.com/moemoe89/go-graphql-gendhis
 
 go 1.13
 
